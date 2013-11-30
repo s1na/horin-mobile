@@ -52,3 +52,6 @@ IOS/www/
 *~
 *.swp
 *.swo
+
+www/lib
+platforms/android
