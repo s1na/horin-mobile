@@ -19,19 +19,17 @@ require.config({
 });
 
 // If running on mobile
-require(['app', 'sockets'],
+/*require(['app', 'sockets'],
         function (app, sockets) {
   app.initialize();
-});
+});*/
 
 // If running on desktop browser
-/*require(['backbone', 'app', 'sockets', 'routers/app', 'views/app'],
+require(['backbone', 'app', 'sockets', 'routers/router', 'views/app'],
         function (Backbone, app, sockets, AppRouter, AppView) {
   app.initialize();
   var socket = sockets.getSocket();
 
-  new AppRouter();
+  var router = new AppRouter();
   Backbone.history.start();
-
-  new AppView();
-});*/
+});

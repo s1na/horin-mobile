@@ -1,19 +1,23 @@
 define(['backbone', 'underscore', 'jquery', 'text!templates/signup.html'],
        function (Backbone, _, $, signupTemplate) {
   var SignupView = Backbone.View.extend({
-    el: '#signup',
+    tagName: 'div',
+    id: 'signup',
     template: _.template(signupTemplate),
 
     events: {
     },
 
     initialize: function () {
+      $('body').html(this.el);
       this.render();
     },
     render: function () {
-      $('#app').hide();
       this.$el.html(this.template);
     },
+    close: function () {
+      this.remove();
+    }
   });
   return SignupView;
 });
