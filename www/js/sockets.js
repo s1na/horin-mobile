@@ -1,5 +1,6 @@
 define(['socketio'], function (io) {
-  return {
+  var socketS = io.connect('http://10.0.2.2:8080');
+    /*{
     initialize: function () {
       var socket = io.connect('http://localhost:8080');
 
@@ -25,5 +26,9 @@ define(['socketio'], function (io) {
 
       return socket;
     }
-  };
+  };*/
+
+  return {
+    getSocket: function () { return socketS; }
+  }
 });

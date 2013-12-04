@@ -1,4 +1,6 @@
-define(function (require) {
+define(['jquery', 'backbone', 'underscore',
+         'sockets', 'routers/router', 'views/app'],
+         function ($, Backbone, _, sockets, AppRouter, AppView) {
   var app = {
       // Application Constructor
       initialize: function() {
@@ -20,9 +22,14 @@ define(function (require) {
       },
       // Update DOM on a Received Event
       receivedEvent: function(id) {
-          var parentElement = document.getElementById(id);
+        if (id === 'deviceready') {
+          var socket = sockets.getSocket();
 
-          console.log('Received Event: ' + id);
+          new AppRouter();
+          Backbone.history.start();
+
+          new AppView();
+        }
       }
   };
   return app;
