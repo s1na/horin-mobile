@@ -1,5 +1,5 @@
-define(['backbone', 'underscore', 'jquery', 'sockets', 'text!templates/login.html'],
-       function (Backbone, _, $, sockets, loginTemplate) {
+define(['backbone', 'underscore', 'jquery', 'config', 'text!templates/login.html'],
+       function (Backbone, _, $, config, loginTemplate) {
   var LoginView = Backbone.View.extend({
     tagName: 'div',
     id: 'login',
@@ -21,19 +21,31 @@ define(['backbone', 'underscore', 'jquery', 'sockets', 'text!templates/login.htm
       this.remove();
     },
     auth: function () {
-      var socket = sockets.getSocket();
-
-      socket.on('mobile:auth:res', function (data) {
-        if (data.status) {
-          $('body').html('LOGGED IN');
-        } else {
-          $('body').html('FAILED');
+      var email = this.$('#login-email').val();
+      var password = this.$('#login-password').val();
+      $.ajax({
+        type: 'POST',
+        url: config + '/login',
+        data: {
+          email: email,
+          password: password,
+        },
+        headers: {
+          'X-Phonegap': true,
+        },
+        contentType: 'application/x-www-form-urlencoded',
+        dataType: 'json',
+        success: function (data) {
+          if (data.okay) {
+            window.localStorage.setItem('loggedIn', true);
+            window.location.hash = '';
+          } else {
+            this.$('#login').before(data.message);
+          }
+        },
+        error: function (xhr, type, err) {
+          console.log(xhr);
         }
-      });
-
-      socket.emit('mobile:auth:req', {
-        username: $('#login-email').val(),
-        password: $('#login-password').val(),
       });
     },
   });

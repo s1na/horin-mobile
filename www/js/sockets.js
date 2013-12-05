@@ -1,6 +1,6 @@
-define(['socketio'], function (io) {
-  var socketS = io.connect('http://localhost:8080');
-  //var socketS = io.connect('http://10.0.2.2:8080');
+define(['socketio', 'config'], function (io, config) {
+  var socketS = io.connect(config.siteUrl);
+  //var socketS = io.connect(config.siteUrl);
     /*{
     initialize: function () {
       var socket = io.connect('http://localhost:8080');

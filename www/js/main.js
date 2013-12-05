@@ -25,10 +25,9 @@ require.config({
 });*/
 
 // If running on desktop browser
-require(['backbone', 'app', 'sockets', 'routers/router', 'views/app'],
-        function (Backbone, app, sockets, AppRouter, AppView) {
+require(['backbone', 'app', 'routers/router'],
+        function (Backbone, app, AppRouter) {
   app.initialize();
-  var socket = sockets.getSocket();
 
   var router = new AppRouter();
   Backbone.history.start();

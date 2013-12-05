@@ -6,8 +6,6 @@ define(['backbone', 'underscore', 'jquery', 'text!templates/app.html'],
     template: _.template(appTemplate),
 
     events: {
-      'click #login-button': 'login',
-      'click #signup-button': 'signup'
     },
 
     initialize: function () {
@@ -20,12 +18,6 @@ define(['backbone', 'underscore', 'jquery', 'text!templates/app.html'],
     },
     close: function () {
       this.remove();
-    },
-    login: function () {
-      window.location.hash = 'login';
-    },
-    signup: function () {
-      window.locatio.hash = 'signup';
     },
   });
   return AppView;

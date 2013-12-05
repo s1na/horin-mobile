@@ -1,15 +1,21 @@
-define(['backbone', 'views/app', 'views/login', 'views/signup'],
-       function (Backbone, AppView, LoginView, SignupView) {
+define(['backbone', 'views/index',
+       'views/login', 'views/signup',
+       'views/app'],
+       function (Backbone, IndexView, LoginView, SignupView, AppView) {
   var AppRouter = Backbone.Router.extend({
     routes: {
-      '': 'app',
+      '': 'index',
       'login': 'login',
       'signup': 'signup'
     },
 
-    app: function () {
+    index: function () {
       this.curView && this.curView.close();
-      this.curView = new AppView();
+      if (window.localStorage.getItem('loggedIn')) {
+        this.curView = new AppView();
+      } else {
+        this.curView = new IndexView();
+      }
     },
     login: function () {
       this.curView && this.curView.close();
