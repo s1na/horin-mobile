@@ -1,4 +1,4 @@
-define(['jquery', 'backbone', 'underscore',
+define(['jquery', 'backbone', 'underscore', 'sockets',
          'routers/router'],
          function ($, Backbone, _, sockets, AppRouter) {
   var app = {
@@ -23,7 +23,7 @@ define(['jquery', 'backbone', 'underscore',
       // Update DOM on a Received Event
       receivedEvent: function(id) {
         if (id === 'deviceready') {
-          new AppRouter();
+          var router = new AppRouter();
           Backbone.history.start();
         }
       }

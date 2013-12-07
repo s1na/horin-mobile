@@ -23,9 +23,10 @@ define(['backbone', 'underscore', 'jquery', 'config', 'text!templates/login.html
     auth: function () {
       var email = this.$('#login-email').val();
       var password = this.$('#login-password').val();
+      alert('in auth');
       $.ajax({
         type: 'POST',
-        url: config + '/login',
+        url: config.siteUrl + '/login',
         data: {
           email: email,
           password: password,
@@ -37,13 +38,16 @@ define(['backbone', 'underscore', 'jquery', 'config', 'text!templates/login.html
         dataType: 'json',
         success: function (data) {
           if (data.okay) {
+            alert(data.sessionID);
             window.localStorage.setItem('loggedIn', true);
+            window.localStorage.setItem('connect.sid', data.sessionID);
             window.location.hash = '';
           } else {
             this.$('#login').before(data.message);
           }
         },
         error: function (xhr, type, err) {
+          alert(xhr.status);
           console.log(xhr);
         }
       });

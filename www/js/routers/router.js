@@ -6,7 +6,8 @@ define(['backbone', 'views/index',
     routes: {
       '': 'index',
       'login': 'login',
-      'signup': 'signup'
+      'signup': 'signup',
+      'logout': 'logout',
     },
 
     index: function () {
@@ -21,10 +22,12 @@ define(['backbone', 'views/index',
       this.curView && this.curView.close();
       this.curView = new LoginView();
     },
-
     signup: function () {
       this.curView && this.curView.close();
       this.curView = new SignupView();
+    },
+    logout: function () {
+      window.location.hash = '';
     },
   });
   return AppRouter;
