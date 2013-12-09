@@ -7,6 +7,7 @@ define(['backbone', 'underscore', 'jquery', 'config', 'text!templates/login.html
 
     events: {
       'submit #login-form': 'auth',
+      'click #loginPageBack':'index',
     },
 
     initialize: function () {
@@ -15,6 +16,23 @@ define(['backbone', 'underscore', 'jquery', 'config', 'text!templates/login.html
     },
     render: function () {
       this.$el.html(this.template);
+      for(var i=0;i<document.getElementsByClassName('responsive_Image').length;i++)
+      {
+  	var slf='#'+document.getElementsByClassName('responsive_Image')[i].getAttribute('id');
+	var prnt='#'+$(slf).parent().attr('id');
+	if($(prnt).height()<$(prnt).width())
+	{
+	  $(slf).css({'height':'100%','width':'auto','top':'0%'});
+	  $(slf).css({'left':'0%'});
+	}
+	else
+	{
+	  $(slf).css({'width':'100%','height':'auto','left':'0%'});
+//	  $(slf).css({'top':((($(prnt).height()-$(prnt).width())*100/(2*$(prnt).height())).toString()+'%')});
+	  $(slf).css({'top':'auto','bottom':'0%'});	  
+	}
+      }
+
       return this;
     },
     close: function () {
@@ -47,6 +65,9 @@ define(['backbone', 'underscore', 'jquery', 'config', 'text!templates/login.html
           console.log(xhr);
         }
       });
+    },
+    index: function() {
+	window.location.hash='';    
     },
   });
   return LoginView;
