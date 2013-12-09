@@ -1,5 +1,10 @@
 define(['socketio', 'config'], function (io, config) {
-  var socketS = io.connect(config.siteUrl);
+  var socketS;
+  var connect = function () {
+    socketS = io.connect(config.siteUrl, {
+      query: 'connect.sid=' + window.localStorage.getItem('connect.sid')
+    });
+  };
   //var socketS = io.connect(config.siteUrl);
     /*{
     initialize: function () {
@@ -30,6 +35,11 @@ define(['socketio', 'config'], function (io, config) {
   };*/
 
   return {
-    getSocket: function () { return socketS; }
+    getSocket: function () {
+      if (!socketS) {
+        connect();
+      }
+      return socketS;
+    }
   }
 });

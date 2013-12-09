@@ -19,8 +19,8 @@ require.config({
 });
 
 // If running on mobile
-/*require(['app', 'sockets'],
-        function (app, sockets) {
+/*require(['app'],
+        function (app) {
   app.initialize();
 });*/
 
