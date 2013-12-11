@@ -32,7 +32,7 @@ define(['backbone', 'underscore', 'jquery', 'text!templates/index.html'],
 	}
       }
       return this;
-    }, 
+    },
     close: function () {
       this.remove();
     },

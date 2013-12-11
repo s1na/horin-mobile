@@ -1,7 +1,7 @@
 define(['backbone', 'underscore', 'jquery',
-       'sockets',
+       'sockets', 'models/self',
        'text!templates/app.html'],
-       function (Backbone, _, $, sockets, appTemplate) {
+       function (Backbone, _, $, sockets, SelfModel, appTemplate) {
   var AppView = Backbone.View.extend({
     tagName: 'div',
     id: 'app',
@@ -14,9 +14,12 @@ define(['backbone', 'underscore', 'jquery',
 
     initialize: function () {
       $('body').html(this.el);
+      this.self = new SelfModel();
+      this.self.fetch();
+      this.self.on('change', this.render, this);
       var socket = sockets.getSocket();
       var self = this;
-      navSwitch=0;
+      navSwitch = 0;
       socket.on('error', function (data) {
         alert('err ' + window.localStorage.getItem('connect.sid'));
         if (data === 'handshake error') {
@@ -33,7 +36,7 @@ define(['backbone', 'underscore', 'jquery',
       this.render();
     },
     render: function () {
-      this.$el.html(this.template);
+      this.$el.html(this.template(this.self.toJSON()));
       var friend_user=['No1','No2','No3','No4','Np5'];
       var friend_name=['شماره ۱','شماره ۲','شماره ۳','شماره ۴','شماره ۵'];
       var friend_avatar=['/home/amir/horin-mobile/www/img/noUser.png',
@@ -101,8 +104,11 @@ define(['backbone', 'underscore', 'jquery',
 
     },
     logout: function () {
-      window.localStorage.removeItem('loggedIn');
-      window.localStorage.removeItem('connect.sid');
+      window.localStorage.removeItem('horin:app:loggedIn');
+      window.localStorage.removeItem('horin:app:connect.sid');
+      window.localStorage.removeItem('horin:app:selfEmail');
+      var socket = sockets.getSocket();
+      socket.disconnect();
       window.location.hash = 'logout';
     }
   });

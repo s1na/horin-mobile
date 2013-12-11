@@ -46,7 +46,6 @@ define(['backbone', 'underscore', 'jquery', 'config', 'text!templates/login.html
     auth: function () {
       var email = this.$('#login-email').val();
       var password = this.$('#login-password').val();
-      alert('in auth');
       $.ajax({
         type: 'POST',
         url: config.siteUrl + '/login',
@@ -61,9 +60,9 @@ define(['backbone', 'underscore', 'jquery', 'config', 'text!templates/login.html
         dataType: 'json',
         success: function (data) {
           if (data.okay) {
-            alert(data.sessionID);
-            window.localStorage.setItem('loggedIn', true);
-            window.localStorage.setItem('connect.sid', data.sessionID);
+            window.localStorage.setItem('horin:app:loggedIn', true);
+            window.localStorage.setItem('horin:app:connect.sid', data.sessionID);
+            window.localStorage.setItem('horin:app:selfEmail', email);
             window.location.hash = '';
           } else {
             this.$('#login').before(data.message);
@@ -76,7 +75,7 @@ define(['backbone', 'underscore', 'jquery', 'config', 'text!templates/login.html
       });
     },
     index: function() {
-	window.location.hash='';    
+      window.location.hash = '';
     },
   });
   return LoginView;

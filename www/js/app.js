@@ -1,6 +1,6 @@
-define(['jquery', 'backbone', 'underscore', 'sockets',
+define(['jquery', 'backbone', 'underscore',
          'routers/router'],
-         function ($, Backbone, _, sockets, AppRouter) {
+         function ($, Backbone, _, AppRouter) {
   var app = {
       // Application Constructor
       initialize: function() {

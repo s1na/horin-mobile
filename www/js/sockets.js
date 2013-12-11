@@ -2,7 +2,7 @@ define(['socketio', 'config'], function (io, config) {
   var socketS;
   var connect = function () {
     socketS = io.connect(config.siteUrl, {
-      query: 'connect.sid=' + window.localStorage.getItem('connect.sid')
+      query: 'connect.sid=' + window.localStorage.getItem('horin:app:connect.sid')
     });
   };
   //var socketS = io.connect(config.siteUrl);

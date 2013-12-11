@@ -12,7 +12,7 @@ define(['backbone', 'views/index',
 
     index: function () {
       this.curView && this.curView.close();
-      if (window.localStorage.getItem('loggedIn')) {
+      if (window.localStorage.getItem('horin:app:loggedIn')) {
         this.curView = new AppView();
       } else {
         this.curView = new IndexView();

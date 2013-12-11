@@ -1,9 +1,9 @@
-define(['backbone', 'sockets'],
-       function (Backbone, sockets) {
+define(['backbone'],
+       function (Backbone) {
   var UserModel = Backbone.Model.extend({
-    defaults: {
-      name: '',
-      gravatarUrl: '',
+    initialize: function () {
+      this.name = '';
+      this.gravatarUrl = '';
     },
   });
   return UserModel;
