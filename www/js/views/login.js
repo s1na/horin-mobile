@@ -7,7 +7,7 @@ define(['backbone', 'underscore', 'jquery', 'config', 'text!templates/login.html
 
     events: {
       'submit #login-form': 'auth',
-      'click #loginPageBack':'index',
+      'click #pageBack':'index',
     },
 
     initialize: function () {
@@ -31,6 +31,11 @@ define(['backbone', 'underscore', 'jquery', 'config', 'text!templates/login.html
 //	  $(slf).css({'top':((($(prnt).height()-$(prnt).width())*100/(2*$(prnt).height())).toString()+'%')});
 	  $(slf).css({'top':'auto','bottom':'0%'});	  
 	}
+      }
+      for(var i=0;i<document.getElementsByClassName('loginPlate').length;i++)
+      {
+  	var slf='#'+document.getElementsByClassName('loginPlate')[i].getAttribute('id');
+	$(slf).css({'left':((($('body').width()-$(slf).width())/2).toString()+'px')});
       }
 
       return this;

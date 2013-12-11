@@ -228,42 +228,45 @@ h1 {
 	position:absolute;
 	left:75%;
 }
-#loginHeader{
+#pageHeader{
 	position:absolute;
 	width:100%;
 	left:0%;
 	height:10%;
 	top:0%;
 }
+.loginPlate{
+	max-width:600px;
+}
 #facebookPlate{
 	position:absolute;
 	width:100%;
-	height:15%;
-	top:10%;
+	height:12%;
+	top:17%;
 	left:0%;
 	background-color:#3a589b;
 }
 #googlePlate{
 	position:absolute;
 	width:100%;
-	height:15%;
-	top:40%;
+	height:12%;
+	top:45%;
 	left:0%;
 	background-color:#d64136;
 }
 #twitterPlate{
 	position:absolute;
 	width:100%;
-	height:15%;
-	top:25%;
+	height:12%;
+	top:31%;
 	left:0%;
 	background-color:#2daae1;
 }
 #mailPlate{
 	position:absolute;
 	width:100%;
-	height:25%;
-	top:55%;
+	height:18%;
+	top:59%;
 	left:0%;
 	background-color:#7f8c8d;
 }
@@ -285,21 +288,21 @@ h1 {
 	text-align:right;
 	color:#FFFFFF;
 }
-#loginPageBackBox {
+#pageBackBox {
 	position:absolute;
 	height:70%;
 	top:15%;
 	width:20%;
 	left:3%;
 }
-#loginPageHeaderText {
+#pageHeaderText {
 	position:absolute;
 	width:50%;
 	right:5%;
 	height:80%;
 	top:10%;
 	font-family:bmitra;
-	font-size:2.5em;
+	font-size:3em;
 	text-align:right;
 	color:#FFFFFF;
 }
@@ -344,4 +347,245 @@ h1 {
 	background-color:#454646;
 	color:#aaaaaa;
 }
+#signupPlateBox{
+	position:absolute;
+	height:60%;
+	width:100%;
+	top:20%;
+	background-color:#3B8183;
+}
+#signupPlate{
+	position:absolute;
+	height:100%;
+	width:100%;
+	max-width:600px;
+	top:0%;
+}
+#signup-firstname{
+	position:absolute;
+	top:4%;
+	height:11%;
+	width:80%;
+	left:10%;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	font-family:bmitra;
+	font-size:2em;
+}
+#signup-lastname{
+	position:absolute;
+	top:17.5%;
+	height:11%;
+	width:80%;
+	left:10%;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	font-family:bmitra;
+	font-size:2em;
 
+}
+#signup-gender{
+	position:absolute;
+	top:31%;
+	height:11%;
+	width:80%;
+	left:10%;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	font-family:bmitra;
+	font-size:2em;
+
+}
+#signup-email{
+	position:absolute;
+	top:44.5%;
+	height:11%;
+	width:80%;
+	left:10%;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	font-family:bmitra;
+	font-size:2em;
+
+}
+#signup-password{
+	position:absolute;
+	top:58%;
+	height:11%;
+	width:80%;
+	left:10%;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	font-family:bmitra;
+	font-size:2em;
+
+}
+#signup-password-confirm{
+	position:absolute;
+	top:71.5%;
+	height:11%;
+	width:80%;
+	left:10%;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	font-family:bmitra;
+	font-size:2em;
+
+}
+#signup-submit{
+	position:absolute;
+	top:85%;
+	height:11%;
+	width:80%;
+	left:10%;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	background-color:#454646;
+	font-family:bmitra;
+	font-size:2em;
+
+}
+#signup-male{
+	position:absolute;
+	top:0%;
+	height:100%;
+	width:49.5%;
+	left:0%;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	font-family:bmitra;
+	font-size:1em;
+	line-height:0.8em;
+
+}
+#signup-female{
+	position:absolute;
+	top:0%;
+	height:100%;
+	width:49.5%;
+	right:0%;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	font-family:bmitra;
+	font-size:1em;
+	line-height:0.8em;
+
+
+}
+#friend-list{
+	position:absolute;
+	height:70%;
+	top:10%;
+	width:100%;
+	left:0%;
+	background-color:#667071;
+	overflow-y:auto;
+}
+#get-random{
+	position:absolute;
+	width:100%;
+	left:0%;
+	height:18%;
+	top:82%;
+	background-color:#3B8183;
+}
+#random-text{
+	position:absolute;
+	width:100%;
+	left:0%;
+	height:100%;
+	top:0%;
+	font-size:4em;
+	font-family:bmitra;
+	color:#FFFFFF;
+	text-align:center;
+}
+#logout-text{
+	position:absolute;
+	font-size:2em;
+	font-family:bmitra;
+	color:#FFFFFF;
+	width:100%;
+	height:100%;
+	left:0%;
+	top:0%;
+}
+#logout-button{
+	position:absolute;
+	width:100%;
+	left:0%;
+	bottom:0%;
+	height:7%;
+	background-color:#ED303C;
+	text-align:center;
+}
+#app-username{
+	position:absolute;
+	width:49%;
+	right:18%;
+	height:100%;
+	top:0%;
+	font-size:2.5em;
+	font-family:bmitra;
+	text-align:right;
+	color:#FFFFFF;
+}
+#app-avatar-box{
+	position:absolute;
+	width:10%;
+	right:3%;
+	height:100%;
+	top:0%;
+}
+.friend-box{
+	position:absolute;
+	height:12%;
+	width:100%;
+	left:0%;
+}
+.friend-avatar-box{
+	position:absolute;
+	height:80%;
+	top:10%;
+	width:10%;
+	right:3%;
+}
+.friend-username{
+	position:absolute;
+	width:50%;
+	height:90%;
+	top:10%;
+	right:18%;
+	text-align:right;
+	color:#FFFFFF;
+	font-size:2em;
+	font-family:bmitra;
+}
+#dashboard-nav-box{
+	position:absolute;
+	width:10%;
+	left:0;
+	top:10%;
+	height:80%;
+}
+#dashboard-nav{
+	opacity:0.5;
+}
+#dashboard{
+	position:absolute;
+	width:50%;
+	height:100%;
+	left:0%;
+	top:0%;
+	z-index:-2;
+	background-color:#1A1A1A;
+}
